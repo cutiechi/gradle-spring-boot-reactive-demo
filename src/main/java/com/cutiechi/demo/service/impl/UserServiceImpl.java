@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * 用户业务逻辑实现类
@@ -30,6 +31,17 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public UserServiceImpl (UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    /**
+     * 添加用户
+     *
+     * @param user 用户
+     * @return 用户 Mono
+     */
+    @Override
+    public Mono<User> insert (final User user) {
+        return userRepository.save(user);
     }
 
     /**
