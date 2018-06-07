@@ -53,4 +53,15 @@ public class UserServiceImpl implements UserService {
     public Flux<User> listAll () {
         return userRepository.findAll();
     }
+
+    /**
+     * 根据用户 ID 获取用户
+     *
+     * @param userId 用户 ID
+     * @return 用户 Mono
+     */
+    @Override
+    public Mono<User> getById (String userId) {
+        return userRepository.findById(userId);
+    }
 }
