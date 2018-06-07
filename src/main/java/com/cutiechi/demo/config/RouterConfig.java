@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import static org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.http.MediaType.TEXT_PLAIN;
 
@@ -45,6 +46,11 @@ public class RouterConfig {
             // 添加用户, API 为 POST 请求 /users
             POST("/users").and(accept(APPLICATION_JSON)),
             userHandler::insert
+        ).andRoute(
+
+            // 根据用户 ID 获取用户, API 为 GET 请求 /users/{userId}
+            GET("/users/{userId}").and(accept(APPLICATION_FORM_URLENCODED)),
+            userHandler::getById
         );
     }
 }
