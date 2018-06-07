@@ -56,4 +56,16 @@ public final class UserHandler {
             .ok()
             .body(userService.listAll(), User.class);
     }
+
+    /**
+     * 根据用户 ID 获取用户
+     *
+     * @param request 请求
+     * @return 响应
+     */
+    public Mono<ServerResponse> getById (ServerRequest request) {
+        return ServerResponse
+            .ok()
+            .body(userService.getById(request.pathVariable("userId")), User.class);
+    }
 }
