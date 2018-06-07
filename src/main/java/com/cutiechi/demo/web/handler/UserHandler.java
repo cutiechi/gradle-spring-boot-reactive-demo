@@ -34,6 +34,18 @@ public final class UserHandler {
     }
 
     /**
+     * 添加用户
+     *
+     * @param request 请求
+     * @return 响应
+     */
+    public Mono<ServerResponse> insert (ServerRequest request) {
+        return ServerResponse
+            .ok()
+            .body(request.bodyToMono(User.class).flatMap(userService::insert), User.class);
+    }
+
+    /**
      * 获取全部用户列表
      *
      * @param request 请求
