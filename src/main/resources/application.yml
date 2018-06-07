@@ -3,3 +3,13 @@ server:
 
   # 端口号码
   port: 8300
+
+# Spring 配置
+spring:
+  data:
+
+    # Data MongoDB 配置
+    mongodb:
+
+      连接地址
+      uri: mongodb://cutie:123456@localhost:8400/spring_boot_reactive_demo
