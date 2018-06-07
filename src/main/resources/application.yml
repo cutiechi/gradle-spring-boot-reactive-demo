@@ -11,5 +11,5 @@ spring:
     # Data MongoDB 配置
     mongodb:
 
-      连接地址
+      # 连接地址
       uri: mongodb://cutie:123456@localhost:8400/spring_boot_reactive_demo
